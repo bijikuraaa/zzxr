@@ -91,3 +91,88 @@
 @media(max-width:580px){.contact-section{grid-template-columns:1fr;padding:43px 8%;gap:23px}.contact-intro h2{font-size:40px}.contact-intro>p:last-child{margin-top:12px}.contact-card{min-height:68px;padding:11px 13px}}
 
 .contact-icon svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}.contact-icon svg .icon-dot{fill:currentColor;stroke:none}.instagram-icon{background:linear-gradient(135deg,#e9b369,#c77b66 52%,#805a78);color:#fff}.whatsapp-icon{background:#e0efe3;color:#218451}
+
+/* Gallery arrows: crisp SVG glyphs centered in the circular controls */
+.gallery-arrow{padding:0;line-height:0;font-size:0;display:grid;place-items:center}
+.gallery-arrow svg{display:block;width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.gallery-arrow:focus-visible{outline:2px solid #536c58;outline-offset:3px}
+
+
+/* Refinements from storefront review */
+.hero-copy .button-light{font-size:13px;gap:16px;padding:15px 21px;justify-content:space-between}
+.hero-copy .button-light span{display:inline-flex;width:21px;min-width:21px;height:21px;align-items:center;justify-content:center;font-size:17px;line-height:1}
+.search-box{height:42px;gap:10px;padding:0 14px;align-items:center}
+.search-icon{display:block;width:15px;height:15px;flex:0 0 15px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.search-box input{height:100%;line-height:1;display:block;padding:0;align-self:stretch}
+.search-box input::placeholder{line-height:normal}
+.collection-footer{color:#756c60;font-size:10px;font-weight:400;letter-spacing:.07em}
+.collection-footer a{font-size:11px;font-weight:400;color:#66594d}
+.text-link{font-size:12px;color:#51483e;border-bottom-color:#8d8071}
+footer .footer-brand{color:#35483b}
+footer .footer-brand .brand-mark{background:#35483b;color:#f8f6f0}
+footer .footer-brand .brand-light{color:#665c50}
+@media(max-width:580px){.hero-copy .button-light{font-size:13px;min-width:205px;padding:14px 19px}.collection-footer{font-size:8px;letter-spacing:.04em}.collection-footer a{font-size:10px}.text-link{font-size:12px}}
+
+/* Scroll-aware navigation */
+.topbar{position:fixed;top:0;left:0;right:0;transform:translateY(0);transition:transform .28s ease,background-color .25s ease,box-shadow .25s ease}
+.topbar.is-hidden{transform:translateY(-105%)}
+.topbar.is-scrolled{background:rgba(248,246,240,.96);box-shadow:0 5px 24px rgba(34,39,31,.08);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.topbar.is-scrolled .brand,.topbar.is-scrolled .main-nav,.topbar.is-scrolled .header-actions .icon-button,.topbar.is-scrolled .menu-toggle{color:var(--ink)}
+.topbar.is-scrolled .brand-mark{background:#3f5947;border-color:#3f5947;color:#f8f6f0}
+.main-nav a[href="#koleksi"]:after{display:none}
+.main-nav a{transition:color .18s ease}
+.topbar.is-scrolled .main-nav a:hover{color:var(--accent)}
+@media(max-width:580px){.topbar.is-scrolled .main-nav{background:rgba(248,246,240,.98);color:var(--ink)}}
+@media(prefers-reduced-motion:reduce){.topbar{transition:none}}
+
+/* Stronger hide/show state with a soft translucent edge when visible */
+.topbar{transition:transform .32s cubic-bezier(.22,.7,.25,1),background-color .25s ease,box-shadow .25s ease,opacity .22s ease}
+.topbar.is-hidden{transform:translate3d(0,-110%,0);opacity:0;pointer-events:none}
+.topbar.is-scrolled{background:rgba(248,246,240,.84);border-bottom:1px solid rgba(83,75,63,.12);box-shadow:0 7px 24px rgba(35,38,31,.07);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+@media(prefers-reduced-motion:reduce){.topbar{transition:none}}
+
+/* Smoky, more transparent navigation with a softer glide */
+.topbar{transition:transform .52s cubic-bezier(.22,1,.36,1),background-color .42s ease,box-shadow .42s ease,opacity .32s ease;will-change:transform}
+.topbar.is-hidden{transform:translate3d(0,-112%,0);opacity:0;pointer-events:none}
+.topbar.is-scrolled{background:rgba(37,43,35,.62);border-bottom:1px solid rgba(255,255,255,.14);box-shadow:0 8px 28px rgba(20,24,19,.12);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+.topbar.is-scrolled .brand,.topbar.is-scrolled .main-nav,.topbar.is-scrolled .header-actions .icon-button,.topbar.is-scrolled .menu-toggle{color:rgba(255,255,255,.96)}
+.topbar.is-scrolled .brand-mark{background:transparent;border-color:rgba(255,255,255,.82);color:#fff}
+.topbar.is-scrolled .main-nav a:hover{color:#e7c89b}
+@media(max-width:580px){.topbar.is-scrolled .main-nav{background:rgba(37,43,35,.88);color:#fff}}
+@media(prefers-reduced-motion:reduce){.topbar{will-change:auto}}
+
+/* Mobile hero fills the viewport like the desktop opening scene */
+@media(max-width:580px){
+  .hero{width:100%;height:100vh;height:100svh;min-height:100svh;max-height:none}
+  .hero-photo{object-position:36% 52%;object-fit:cover}
+  .hero-copy{top:23%;}
+}
+
+/* Fluid type scale for consistent reading across screen sizes */
+body{font-size:clamp(14px,.875rem + .08vw,15px)}
+@media(max-width:580px){
+  .main-nav{font-size:13px}
+  .hero-copy .eyebrow,.eyebrow{font-size:9px}
+  .hero h1{font-size:clamp(41px,10.5vw,58px);line-height:.98;letter-spacing:-.035em}
+  .hero-intro{font-size:clamp(13px,3.5vw,14px);line-height:1.7}
+  .filter{font-size:clamp(10px,2.8vw,11px)}
+  .results-count{font-size:clamp(11px,2.8vw,12px)}
+  .card-info h3{font-size:clamp(13px,3.7vw,15px)}
+  .card-info p{font-size:clamp(10px,2.8vw,11px);line-height:1.5}
+  .add-quick{font-size:clamp(11px,3vw,12px)}
+  .collection-footer{font-size:clamp(9px,2.4vw,10px)}
+  .collection-footer a{font-size:clamp(10px,2.8vw,11px)}
+  .story-copy>p:not(.eyebrow){font-size:13px;line-height:1.75}
+  .contact-intro h2{font-size:clamp(35px,9vw,42px)}
+  .contact-intro>p:last-child{font-size:13px;line-height:1.75}
+  .contact-detail small{font-size:9px}
+  .contact-detail strong{font-size:13px}
+  footer p,footer>span{font-size:10px}
+  .detail-copy{padding:clamp(21px,6vw,28px)}
+  .detail-copy h2{font-size:clamp(30px,8.2vw,36px);line-height:1.08}
+  .detail-copy .detail-price{font-size:clamp(14px,3.8vw,16px)}
+  .detail-copy>p:not(.eyebrow){font-size:14px;line-height:1.75}
+  .detail-copy .button{font-size:13px}
+  .gallery-stage{height:clamp(240px,72vw,300px);touch-action:pan-y;user-select:none;-webkit-user-select:none}
+  .gallery-stage>img{-webkit-user-drag:none}
+}
